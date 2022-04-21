@@ -19,9 +19,9 @@ $ServersAllIPFinalPath = "$PowerShellFolderPath\ServersAllIPFinal-$CurrentDate.c
 # AD Search type variables
 # $adcompproperties = @('Name','ipv4Address','OperatingSystem')
 $adcompproperties = @('Name','ipv4Address')
-$ADSearchBase = "OU=Servers,OU=Equipment,DC=ad,DC=ascendlearning,DC=com"
-$ADSearchBase2 = "OU=Domain Controllers,DC=ad,DC="domain",DC=com"
-$ADSearchBase3 = "CN=Computers,DC=ad,DC="domain",DC=com"
+$ADSearchBase = ""
+$ADSearchBase2 = ""
+$ADSearchBase3 = ""
 
 #These filters remove any sever not in our PRD environement, and are windows server
 
@@ -513,7 +513,7 @@ Move-Item -Force $ServersAllIPFinalPath $CopyReportToPath
 #
 
 Send-MailMessage -to $SendReportEmailTo `
--From "Server Local Admins Report <serverlocaladminsreport@ascendlearning.com>" `
+-From ""
 -Subject "New local admins report has been generated" `
 -BodyAsHtml "The reports can be found <a href='$CopyReportToPath'>HERE</a> <br/><br/> DO NOT REPLY TO THIS ADDRESS, IT IS NOT MONITORED. " `
 -SmtpServer $SMTPServer
